@@ -6,7 +6,7 @@ import '@scss/home/main.scss';;
 const App: FC = () => {
 
   const onHello = () => {
-      console.log('hello'); 
+      // console.log('hello');
   }
 
 
