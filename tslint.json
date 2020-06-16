@@ -28,9 +28,9 @@
     "no-namespace": false,
     "indent": [true, "spaces", 2],
     "no-trailing-whitespace": true,
-    "whitespace": true,
     "align": [true, "parameters", "statements"],
-    "react/jsx-indent": [2]
+    "quotemark": [true, "single"],
+    "whitespace": [true, "check-branch", "check-operator", "check-typecast"]
   },
   "jsRules": {
     "object-literal-sort-keys": false
