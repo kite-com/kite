@@ -88,25 +88,6 @@ module.exports = function(webpackEnv) {
         // Adds vendor prefixing based on your specified browser support in
         // package.json
         loader: require.resolve('postcss-loader'),
-        options: {
-          // Necessary for external CSS imports to work
-          // https://github.com/facebook/create-react-app/issues/2677
-          ident: 'postcss',
-          plugins: () => [
-            require('postcss-flexbugs-fixes'),
-            require('postcss-preset-env')({
-              autoprefixer: {
-                flexbox: 'no-2009',
-              },
-              stage: 3,
-            }),
-            // Adds PostCSS Normalize as the reset css with default options,
-            // so that it honors browserslist config in package.json
-            // which in turn let's users customize the target behavior as per their needs.
-            postcssNormalize(),
-          ],
-          sourceMap: isEnvProduction && shouldUseSourceMap,
-        },
       },
     ].filter(Boolean);
     if (preProcessor) {
@@ -294,12 +275,12 @@ module.exports = function(webpackEnv) {
         'react-native': 'react-native-web',
         '@': paths.appSrc,
         '@common': paths.appCommon,
-        '@commonSass': paths.commonSass,
+        '@commonScss': paths.commonScss,
         '@commonStore': paths.commonStore,
         '@commonStyled': paths.commonStyled,
         '@comp': paths.appComp,
         '@store': paths.appStore,
-        '@sass': paths.appSass,
+        '@scss': paths.appScss,
         '@module': paths.appModule,
         '@service': paths.appService,
         '@util': paths.appUtil,
@@ -382,31 +363,6 @@ module.exports = function(webpackEnv) {
               test: /\.(js|mjs|jsx|ts|tsx)$/,
               include: paths.appSrc,
               loader: require.resolve('babel-loader'),
-              options: {
-                customize: require.resolve(
-                  'babel-preset-react-app/webpack-overrides'
-                ),
-                plugins: [
-                  [
-                    require.resolve('babel-plugin-named-asset-import'),
-                    {
-                      loaderMap: {
-                        svg: {
-                          ReactComponent:
-                            '@svgr/webpack?-svgo,+titleProp,+ref![path]',
-                        },
-                      },
-                    },
-                  ],
-                ],
-                // This is a feature of `babel-loader` for webpack (not Babel itself).
-                // It enables caching results in ./node_modules/.cache/babel-loader/
-                // directory for faster rebuilds.
-                cacheDirectory: true,
-                // See #6846 for context on why cacheCompression is disabled
-                cacheCompression: false,
-                compact: isEnvProduction,
-              },
             },
             // Process any JS outside of the app with Babel.
             // Unlike the application JS, we only compile the standard ES features.
@@ -414,25 +370,6 @@ module.exports = function(webpackEnv) {
               test: /\.(js|mjs)$/,
               exclude: /@babel(?:\/|\\{1,2})runtime/,
               loader: require.resolve('babel-loader'),
-              options: {
-                babelrc: false,
-                configFile: false,
-                compact: false,
-                presets: [
-                  [
-                    require.resolve('babel-preset-react-app/dependencies'),
-                    { helpers: true },
-                  ],
-                ],
-                cacheDirectory: true,
-                // See #6846 for context on why cacheCompression is disabled
-                cacheCompression: false,
-                // Babel sourcemaps are needed for debugging into node_modules
-                // code.  Without the options below, debuggers like VSCode
-                // show incorrect code and set breakpoints on the wrong lines.
-                sourceMaps: shouldUseSourceMap,
-                inputSourceMap: shouldUseSourceMap,
-              },
             },
             // "postcss" loader applies autoprefixer to our CSS.
             // "css" loader resolves paths in CSS and adds assets as dependencies.

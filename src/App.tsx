@@ -1,8 +1,10 @@
 import React from 'react';
+import '@commonScss/index.scss';
+import '@scss/home/main.scss';
 
 function App() {
   return (
-    <div className="App">
+    <div className="home-page">
       <header>hello</header>
     </div>
   );
