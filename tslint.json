@@ -9,14 +9,15 @@
       "config/**/*.js",
       "node_modules/**/*.ts",
       "node_modules/*",
-      "coverage/lcov-report/*.js"
+      "coverage/lcov-report/*.js",
+      "src/serviceWorker.ts"
     ]
   },
   "rules": {
     "no-empty-interface": false,
     "ordered-imports": [false],
     "object-literal-sort-keys": false,
-    "no-console": [ false ],
+    "no-console": [ true ],
     "no-unused-expression": [false],
     "no-shadowed-variable": false,
     "label-position": false,
@@ -24,7 +25,12 @@
     "jsx-no-lambda": false,
     "allowDeclarations": false,
     "allowDefinitionFiles": false,
-    "no-namespace": false
+    "no-namespace": false,
+    "indent": [true, "spaces", 2],
+    "no-trailing-whitespace": true,
+    "whitespace": true,
+    "align": [true, "parameters", "statements"],
+    "react/jsx-indent": [2]
   },
   "jsRules": {
     "object-literal-sort-keys": false

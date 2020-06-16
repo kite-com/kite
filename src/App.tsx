@@ -1,11 +1,18 @@
-import React from 'react';
-import '@commonScss/index.scss';
-import '@scss/home/main.scss';
+import React, {FC } from 'react';
 
-function App() {
+import '@commonScss/index.scss';
+import '@scss/home/main.scss';;
+
+const App: FC = () => {
+
+  const onHello = () => {
+      console.log('hello'); 
+  }
+
+
   return (
     <div className="home-page">
-      <header>hello</header>
+        <header onClick={onHello}>hello00</header>
     </div>
   );
 }
