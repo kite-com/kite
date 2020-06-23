@@ -150,8 +150,26 @@
     ]
   },
   "devDependencies": {
+    "@emotion/core": "^10.0.28",
+    "@emotion/styled": "^10.0.27",
+    "@material-ui/core": "^4.10.2",
+    "@material-ui/icons": "^4.9.1",
+    "@material-ui/styles": "^4.10.0",
+    "emotion": "^10.0.27",
     "husky": "^4.2.5",
-    "prettier": "^2.0.5"
+    "immutable": "^4.0.0-rc.12",
+    "lodash": "^4.17.15",
+    "material-design-icons": "^3.0.1",
+    "mathjs": "^7.0.1",
+    "mobx": "^5.15.4",
+    "mobx-react": "^6.2.2",
+    "moment": "^2.26.0",
+    "prettier": "^2.0.5",
+    "ramda": "^0.27.0",
+    "react-router-dom": "^5.2.0",
+    "rxjs": "^6.5.5",
+    "styled-components": "^5.1.1",
+    "viewerjs": "^1.6.1"
   },
   "husky": {
     "hooks": {
